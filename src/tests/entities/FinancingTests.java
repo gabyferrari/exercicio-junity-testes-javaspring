@@ -33,5 +33,32 @@ public class FinancingTests {
 			new Financing(100000.0, 2000.0, 20);
 		});
 	}
+	
+	@Test
+	public void setTotalAmountShouldUpdateDataWhenDataIsValid() {
+		
+		//Arrange
+		Financing fin = new Financing(100000.0, 2000.0, 80);
+		
+		//Act
+		fin.setTotalAmount(90000.0);
+		
+		//Assert
+		Assertions.assertEquals(90000.0, fin.getTotalAmount());
+	}
+	
+	@Test
+	public void setTotalAmountShouldThrowExceptionWhenDataIsInvalid() {
+		
+		//Assert
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {
+			
+			//Arrange
+			Financing fin = new Financing(100000.0, 2000.0, 80);
+			
+			//Act
+			fin.setTotalAmount(110000.0);
+		});
+	}
 
 }
