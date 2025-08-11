@@ -126,5 +126,17 @@ public class FinancingTests {
 		//Assert
 		Assertions.assertEquals(20000.0, fin.entry());
 	}
+	
+	@Test
+	public void quotaShouldCalculateQuotaCorrectly() {
+		
+		//Arrange
+		Financing fin = new Financing(100000.0, 2000.0, 80);
+		
+		//Act
+		
+		//Assert
+		Assertions.assertEquals(1000.0, fin.quota());
+	}
 
 }
