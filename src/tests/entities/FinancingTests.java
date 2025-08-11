@@ -68,7 +68,7 @@ public class FinancingTests {
 		Financing fin = new Financing(100000.0, 2000.0, 80);
 		
 		//Act
-		fin.setIncome(2100.0);;
+		fin.setIncome(2100.0);
 		
 		//Assert
 		Assertions.assertEquals(2100.0, fin.getIncome());
@@ -85,6 +85,33 @@ public class FinancingTests {
 			
 			//Act
 			fin.setIncome(1900.0);
+		});
+	}
+	
+	@Test
+	public void setMonthsShouldUpdateDataWhenDataIsValid() {
+		
+		//Arrange
+		Financing fin = new Financing(100000.0, 2000.0, 80);
+		
+		//Act
+		fin.setMonths(81);
+		
+		//Assert
+		Assertions.assertEquals(81, fin.getMonths());
+	}
+	
+	@Test
+	public void setMonthsShouldThrowExceptionWhenDataIsInvalid() {
+		
+		//Assert
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {
+			
+			//Arrange
+			Financing fin = new Financing(100000.0, 2000.0, 80);
+			
+			//Act
+			fin.setMonths(79);
 		});
 	}
 
